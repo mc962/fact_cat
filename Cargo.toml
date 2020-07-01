@@ -1,0 +1,14 @@
+[package]
+name = "fact_cat"
+version = "0.1.0"
+authors = ["mc962 <11969409+mc962@users.noreply.github.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = { version = "0.10", features = ["json"] }
+tokio = { version = "0.2", features = ["rt-threaded", "macros"] }
+url = "2.1.1"
+serde = { version = "1.0", features = ["derive"] }
+chrono = { version = "0.4", features = ["serde"] }
