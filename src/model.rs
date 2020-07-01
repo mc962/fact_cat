@@ -8,19 +8,19 @@ pub struct FactsResponse {
 
 #[derive(Deserialize, Debug)]
 pub struct RandomFact {
-    used: bool,
-    source: String,
+    used: Option<bool>,
+    source: Option<String>,
     #[serde(rename(serialize = "fact_type", deserialize = "type"))]
-    fact_type: String,
-    deleted: bool,
-    _id: String,
-    user: String,
-    pub(crate) text: String,
-    __v: i32,
+    fact_type: Option<String>,
+    deleted: Option<bool>,
+    _id: Option<String>,
+    user: Option<String>,
+    pub text: String,
+    __v: Option<i32>,
     #[serde(rename(serialize = "updated_at", deserialize = "updatedAt"))]
-    updated_at: DateTime<Utc>,
+    updated_at: Option<DateTime<Utc>>,
     #[serde(rename(serialize = "created_at", deserialize = "createdAt"))]
-    created_at: DateTime<Utc>,
+    created_at: Option<DateTime<Utc>>,
     status: Option<RandomFactStatus>
 }
 

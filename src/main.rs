@@ -1,3 +1,6 @@
+use notify_rust::Notification;
+use crate::model::RandomFact;
+
 pub mod model;
 mod client;
 
@@ -12,7 +15,18 @@ async fn run() {
     let random_fact = random_facts.first();
 
     match random_fact {
-        Some(fact) => println!("{}", fact.text),
+        Some(fact) => {
+            println!("{}", fact.text);
+            notify_fact(fact)
+        },
         None => println!("A cat has swiped your facts")
     }
+}
+
+fn notify_fact(fact: &RandomFact) {
+    Notification::new()
+        .summary("Fact Cat Fact")
+        .body(&fact.text)
+        .show()
+        .unwrap();
 }

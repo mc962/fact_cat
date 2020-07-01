@@ -12,3 +12,4 @@ tokio = { version = "0.2", features = ["rt-threaded", "macros"] }
 url = "2.1.1"
 serde = { version = "1.0", features = ["derive"] }
 chrono = { version = "0.4", features = ["serde"] }
+notify-rust = "4.0"
