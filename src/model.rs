@@ -6,7 +6,7 @@ pub struct FactsResponse {
     all: Vec<Fact>
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Debug, Clone)]
 pub struct RandomFact {
     used: Option<bool>,
     source: Option<String>,
@@ -24,7 +24,7 @@ pub struct RandomFact {
     status: Option<RandomFactStatus>
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize, Debug, Clone)]
 struct RandomFactStatus {
     verified: bool,
     #[serde(rename(serialize = "sent_count", deserialize = "sentCount"))]

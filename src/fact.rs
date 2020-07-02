@@ -2,8 +2,17 @@ use std::time::Duration;
 use reqwest::header::{HeaderMap, HeaderValue};
 use reqwest::Url;
 use crate::model::{RandomFact};
+use notify_rust::Notification;
 
 const SERVER_URL: &str = "https://cat-fact.herokuapp.com";
+
+pub fn notify_fact(fact: &RandomFact) {
+    Notification::new()
+        .summary("Fact Cat Fact")
+        .body(&fact.text)
+        .show()
+        .unwrap();
+}
 
 pub async fn get_random_facts(amount: i32) -> Result<Vec<RandomFact>, reqwest::Error> {
     let path = "/facts/random";

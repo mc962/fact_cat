@@ -1,8 +1,7 @@
-use notify_rust::Notification;
-use crate::model::RandomFact;
+use crate::fact::notify_fact;
 
 pub mod model;
-mod client;
+mod fact;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -11,22 +10,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 async fn run() {
-    let random_facts = client::get_random_facts(1).await.unwrap();
+    let random_facts = fact::get_random_facts(1).await.unwrap();
     let random_fact = random_facts.first();
 
     match random_fact {
         Some(fact) => {
             println!("{}", fact.text);
-            notify_fact(fact)
+            notify_fact(fact);
         },
         None => println!("A cat has swiped your facts")
     }
-}
-
-fn notify_fact(fact: &RandomFact) {
-    Notification::new()
-        .summary("Fact Cat Fact")
-        .body(&fact.text)
-        .show()
-        .unwrap();
 }
