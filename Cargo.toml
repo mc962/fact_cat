@@ -3,6 +3,12 @@ name = "fact_cat"
 version = "0.1.0"
 authors = ["mc962 <11969409+mc962@users.noreply.github.com>"]
 edition = "2018"
+description = "Get your dose of cat facts."
+license = "MIT"
+repository = "https://github.com/mc962/checkasum"
+homepage = "https://github.com/mc962/checkasum"
+keywords = ["cat", "fact"]
+readme = "README.md"
 
 [dependencies]
 reqwest = { version = "0.10", features = ["json"] }
